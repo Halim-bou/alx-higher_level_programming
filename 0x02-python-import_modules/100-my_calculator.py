@@ -11,7 +11,7 @@ if __name__ == "__main__":
     op = {"+": add, "-": sub, "*": mul, "/": div}
 
     if sys.argv[2] in list(op.keys()):
-        print("{} {} {} = {}".fromat(a, sys.argv[2], b, op[sys.argv[2]](a, b)))
+        print(f"{a} {sys.argv[2]} {b} = {op[sys.argv[2]](a, b)}")
     else:
         print("Unknown operator. Available operators: +, -, * and /")
         sys.exit(1)

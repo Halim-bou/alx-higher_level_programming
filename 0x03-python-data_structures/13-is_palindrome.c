@@ -20,8 +20,13 @@ listint_t *reverse(listint_t *head)
 		prev = current;
 		current = next;
 	}
-	return prev;
+	return (prev);
 }
+/**
+ * is_palindrome - function that check if the linked list is palindrome
+ * @head: a pointer to pointer to the first node
+ * Return: 1 if it's palindrome or 0 if not
+ */
 int is_palindrome(listint_t **head)
 {
 	listint_t *slow, *fast;

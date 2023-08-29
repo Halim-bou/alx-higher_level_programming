@@ -1,3 +1,4 @@
 #!/usr/bin/python3
+"""creat an empty class"""
 class Square:
     pass

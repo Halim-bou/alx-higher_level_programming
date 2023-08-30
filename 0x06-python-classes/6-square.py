@@ -34,7 +34,7 @@ class Square:
         elif len(value) != 2:
             raise TypeError(self.type_error)
         for i in value:
-            if not isinstance(i, int) or i < 0:
+            if not isinstance(i, int):
                 raise TypeError(self.type_error)
         else:
             self.__position = value
@@ -45,11 +45,12 @@ class Square:
     def my_print(self):
         if self.__size == 0:
             print("")
-        for i in range(self.__position[1]):
+            return
+        for i in range(0, self.__position[1]):
             print("")
-        for i in range(self.__size):
-            for j in range(self.__position[0]):
+        for i in range(0, self.__size):
+            for j in range(0, self.__position[0]):
                 print(" ", end="")
-            for k in range(self.__size):
+            for k in range(0, self.__size):
                 print("#", end="")
             print("")

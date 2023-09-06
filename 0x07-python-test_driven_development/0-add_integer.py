@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 def add_integer(a, b=98):
     """add functione:
-    That return the result in type ineteger if type of argument 
-    areinteger or float else it will raise a typeerror
+    That return the result in type ineteger if type of
+    argumentareinteger or float else it will raise a typeerror
     """
     if not isinstance(a, int) and not isinstance(a, float):
         raise TypeError("a must be an integer")

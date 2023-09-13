@@ -1,7 +1,4 @@
 #!/usr/bin/python3
-"""
-adds arguments functions
-"""
 import sys
 import json
 import os.path
@@ -16,8 +13,8 @@ if os.path.isfile(filename):
 else:
     filelist = []
 i = 0
-for content in sys.argv:
+for item in sys.argv:
     if i != 0:
-        filelist.append(content)
+        filelist.append(item)
     i += 1
 save_to_json_file(filelist, filename)

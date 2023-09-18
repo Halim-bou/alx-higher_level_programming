@@ -59,6 +59,7 @@ class Square(Rectangle):
             "x": self.x,
             "y": self.y
             })
+
     def __str__(self):
         """return the print and str representation"""
         a = self.id

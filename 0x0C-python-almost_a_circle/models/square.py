@@ -20,14 +20,6 @@ class Square(Rectangle):
         self.width = value
         self.height = value
 
-    def __str__(self):
-        """return the print and str representation"""
-        a = self.id
-        b = self.x
-        c = self.y
-        d = self.width
-        return (f"[Square] ({a}) {b}/{c} - {d}")
-
     def update(self, *args, **kwargs):
         """update the Square"""
         if args and len(args) != 0:
@@ -44,7 +36,7 @@ class Square(Rectangle):
                     self.x = arg
                 elif i == 3:
                     self.y = arg
-                    i += 1
+                i += 1
         elif kwargs and len(kwargs) != 0:
             for k, v in kwargs.items():
                 if k == "id":
@@ -67,3 +59,10 @@ class Square(Rectangle):
             "x": self.x,
             "y": self.y
             })
+    def __str__(self):
+        """return the print and str representation"""
+        a = self.id
+        b = self.x
+        c = self.y
+        d = self.width
+        return (f"[Square] ({a}) {b}/{c} - {d}")

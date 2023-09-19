@@ -37,3 +37,32 @@ class Base:
                     the_dic = obj.to_dictionary()
                     list_dictionaries.append(the_dic)
                 f.write(Base.to_json_string(list_dictionaries))
+
+    @staticmethod
+    def from_json_string(json_string):
+        """return a list of json string representation json_sting"""
+        if json_string is None or json_string == "":
+            return "[]"
+        else:
+            return json.loads(json_string)
+
+    @classmethod
+    def create(cls, **dictionary):
+        """ returns an instance with all attributes already set"""
+        if cls.__name__ == "Rectangle":
+            new_dic = cls(1, 1)
+        else:
+            new_dic = cls(1)
+        new_dic.update(**dictionary)
+        return new_dic
+
+    @classmethod
+    def load_from_file(cls):
+        """returns a list of instances"""
+        filename = str(cls.__name) + ".json"
+        try:
+            with open(filename, "r", encoding="utf-8") as f:
+                dict_list = Base.from_json_string(f.read())
+                return [cls.create(**d) for dic in dict_list]
+        except IOError:
+            return []

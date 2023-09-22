@@ -4,7 +4,6 @@ Base class
 """
 import json
 import csv
-import turtle
 
 
 class Base:
@@ -87,14 +86,18 @@ class Base:
     @classmethod
     def load_from_file_csv(cls):
         try:
-            open(filename, "r", newline="") as f:
+            with open(filename, "r", newline="") as f:
                 if cls.__name__ == "Rectangle":
                     list_names = ["id", "width", "height", "x", "y"]
                 else:
                     list_names = ["id", "size", "x", "y"]
                 list_dicts = csv.DictReader(f, list_names=list_names)
-                list_dicts = [dict([k, int(v)] for k, v in d.items())
-                        for d in list_dicts]
+                new_dicts = []
+                for d in list_dicts:
+                    new_dict = {}
+                    for k, v in d.items():
+                        new_dict[k] = int(v)
+                    new_dicts.append(new_dict)
                 return [cls.create(**d) for d in list_dicts]
-            except IOError:
-                return []
+        except IOError:
+            return []

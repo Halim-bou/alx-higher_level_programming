@@ -1,6 +1,9 @@
 #!/usr/bin/node
 /* script that print 3 lines */
+const Cvar = 'Cis fun';
+const Pvar = 'Python is cool';
+const JSvar = 'JavaScript is amazing';
 
-console.log('C is fin');
-console.log('Python is cool');
-console.log('JavaScript is amazing');
+console.log(Cvar);
+console.log(Pvar);
+console.log(JSvar);

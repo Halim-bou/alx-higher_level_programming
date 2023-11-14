@@ -1,5 +1,5 @@
 #!/usr/bin/node
-const arg = process.argv.silce(2);
+const arg = process.argv.slice(2);
 let secondBigg = 0;
 
 if (arg.length > 1) {

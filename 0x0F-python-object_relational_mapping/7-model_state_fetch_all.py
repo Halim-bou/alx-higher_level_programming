@@ -12,8 +12,8 @@ if __name__ == "__main__":
     mysql = f"mysql+mysqldb://{argv[1]}:{argv[2]}@localhost/{argv[3]}"
     db = sqlalchemy.create_engine(mysql)
     Base.metadata.create_all(db)
-    session_fake = sqlalchemy.orm.sessionmaker(bind=db)
-    session = session()
+    Session = sqlalchemy.orm.sessionmaker(bind=db)
+    session = Session()
     for state in session.query(State).order_by(State.id):
         print("{}: {}".format(state.id, state.name))
     session.close()

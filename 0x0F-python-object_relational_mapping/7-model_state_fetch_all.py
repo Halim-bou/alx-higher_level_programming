@@ -13,6 +13,7 @@ if __name__ == "__main__":
     db = sqlalchemy.create_engine(mysql)
     Base.metadata.create_all(db)
     session_fake = sqlalchemy.orm.sessionmaker(bind=db)
-    session = session_fake()
-    for elem in session.query(State).order_by(State.id):
-        print("{}: {}".format(elem.id, elem.name))
+    session = session()
+    for state in session.query(State).order_by(State.id):
+        print("{}: {}".format(state.id, state.name))
+    session.close()

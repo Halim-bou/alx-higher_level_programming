@@ -9,8 +9,8 @@ from model_state import Base, State
 if __name__ == "__main__":
     myeng = 'mysql+mysqldb://{}:{}\
             @localhost/{}'.format(argv[1], argv[2], argv[3])
-    db = create_engine(myeng)
-    Base.metadata.create_all(db)
+    db = create_engine(myeng, pool_pre_ping=True)
+    #Base.metadata.create_all(db)
     Session = sessionmaker(bind=db)
     session = Session()
     for state in session.query(State).order_by(State.id):

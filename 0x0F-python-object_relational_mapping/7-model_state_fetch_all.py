@@ -9,10 +9,10 @@ script that lists all State objects from the database hbtn_0e_6_usa
 
 
 if __name__ == "__main__":
-    mysql = f"mysql+mysqldb://{argv[1]}:{argv[2]}@localhost/{argv[3]}"
-    db = create_engine(mysql)
-    Base.metadata.create_all(db)
-    Session = sessionmaker(bind=db)
+    myeng = create_engine('mysql+mysqldb://{}:{}\
+            @localhost/{}'.format(argv[1], argv[2], argv[3]))
+    Base.metadata.create_all(myeng)
+    Session = sessionmaker(bind=myeng)
     session = Session()
     for state in session.query(State).order_by(State.id):
         print("{}: {}".format(state.id, state.name))

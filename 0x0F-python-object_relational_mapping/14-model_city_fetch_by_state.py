@@ -18,4 +18,4 @@ if __name__ == "__main__":
                                      .order_by(City.id).all()
     for city, state in rows:
         print("{}: ({}) {}".format(state.name, city.id, city.name))
-    session.commit()
+    session.close()

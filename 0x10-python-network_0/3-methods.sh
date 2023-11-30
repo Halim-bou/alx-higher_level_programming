@@ -1,3 +1,3 @@
 #!/bin/bash
 # .......
-curl -sI "$1" | grep "Allow" | cut -d " " -f 2-
+curl -si "$1" | grep 'Allow:' | cut -d ':' -f2 | cut -b2-

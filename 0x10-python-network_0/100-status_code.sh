@@ -1,3 +1,3 @@
 #!/bin/bash
 # .....
-curl -si "$1" | head -1 | cut -d ' ' -f2
+curl -s -o /dev/null -w "%{http_code}" "$1"

@@ -7,7 +7,7 @@ import urllib.request
 import urllib.error
 
 
-if _name__ == "__main__":
+if __name__ == "__main__":
     try:
         with urllib.request.urlopen(sys.argv[1]) as req:
             print(req.read().decode("utf-8"))

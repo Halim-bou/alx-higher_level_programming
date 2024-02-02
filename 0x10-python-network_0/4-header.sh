@@ -1,3 +1,0 @@
-#!/bin/bash
-# ........
-curl -LsX GET -H 'X-School-User-Id: 98' "$1"

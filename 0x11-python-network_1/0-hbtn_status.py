@@ -12,4 +12,4 @@ try:
         print("\t-content: ", content)
         print("\t-utf8 content: ", utf8_content)
 except urllib.error.URLError as e:
-    pass
+    print("Error: ", e)

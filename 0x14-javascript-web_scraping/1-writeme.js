@@ -2,19 +2,14 @@
 
 const fs = require('fs');
 const file = process.argv[2];
+const text = process.argv[3];
 // funcion to read the file
 function readF (path) {
-  fs.readFile(`./${path}`, 'utf-8', (error, data) => {
+  fs.writeFile(`./${path}`, `${text}`, (error, data) => {
     if (error) {
       console.log(error);
-    } else {
-      console.log(data);
     }
   });
 }
 
-if (!file) {
-  process.exit(1);
-} else {
-  readF(file);
-}
+readF(file);

@@ -8,14 +8,14 @@ request(url, (error, response, data) => {
   if (error) {
     console.error(error);
   } else {
-    for (const character in JSON.parse(data).characters) {
-        request(character, (error, response, data) => {
-            if (error) {
-                console.error(error);
-            } else {
-                console.log(JSON.parse(data).name);
-            }
-        });
+    for (const character of JSON.parse(data).characters) {
+      request(character, (error, response, data) => {
+        if (error) {
+          console.error(error);
+        } else {
+          console.log(JSON.parse(data).name);
+        }
+      });
     }
   }
 });
